@@ -12,3 +12,5 @@
 ## Application rules
 - Keep the initial car collection on the index route with local illustrative inventory and bundled images until real inventory is supplied; this keeps the initial showcase independent of backend services.
 - Define showcase styling and semantic colors in src/styles.css, and use the shared Button for interactions; this keeps the collection visually consistent.
+- Render shared inventory/tuning navigation and footer from the root around Outlet using site-chrome; this keeps both pages connected without duplicating the brand shell.
+- Keep the tuning configurator on /tuning with aligned bundled before/after images and a controlled reveal shared by image dragging and the accessible Slider; this preserves a smooth comparison without server dependencies.
