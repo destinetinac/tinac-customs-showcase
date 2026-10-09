@@ -1,144 +1,132 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
-
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "Barlow Condensed", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--secondary);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
+  --color-accent-foreground: var(--foreground);
   --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --color-input: var(--border);
+  --color-ring: var(--primary);
+  --color-destructive: var(--primary);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
 }
-
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --background: oklch(0.115 0 0);
+  --foreground: oklch(0.96 0 0);
+  --card: oklch(0.15 0 0);
+  --primary: oklch(0.69 0.205 25);
+  --primary-foreground: oklch(0.115 0 0);
+  --secondary: oklch(0.19 0 0);
+  --accent: oklch(0.24 0 0);
+  --muted-foreground: oklch(0.69 0 0);
+  --border: oklch(0.27 0 0);
 }
-
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
-}
-
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
-
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-  }
+  * { border-color: var(--border); }
+  body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); letter-spacing: 0; }
+  button, input, select { font: inherit; }
+  ::selection { background: var(--primary); color: var(--background); }
+  html { scroll-behavior: smooth; }
 }
+.site-container { max-width: 1240px; margin-inline: auto; padding-inline: 48px; }
+.site-header { height: 96px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.wordmark { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--foreground); }
+.brand-mark { color: var(--primary); width: 38px; height: 36px; }
+.brand-name { font-family: var(--font-display); font-size: 25px; font-weight: 700; text-transform: uppercase; line-height: .95; }
+.brand-name span { color: var(--primary); }
+.header-nav { font-size: 13px; display: flex; align-items: center; gap: 12px; }
+.header-nav a { color: var(--foreground); text-decoration: none; }
+.nav-dot { width: 6px; height: 6px; background: var(--primary); border-radius: 50%; }
+.intro { padding-block: 57px 44px; }
+.eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; display: flex; gap: 10px; align-items: center; color: var(--muted-foreground); }
+.eyebrow::before { content: ''; width: 26px; height: 2px; background: var(--primary); }
+.intro h1 { font-family: var(--font-display); font-size: 94px; text-transform: uppercase; color: var(--primary); font-weight: 700; line-height: 1; margin: 17px 0 18px; }
+.intro-bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.intro p { margin: 0; color: var(--muted-foreground); font-size: 14px; }
+.intro-index { font-family: var(--font-display); color: var(--muted-foreground); font-size: 15px; }
+.inventory-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 22px; border-top: 1px solid var(--border); }
+.inventory-heading { display: flex; align-items: center; gap: 12px; }
+.inventory-heading h2 { font-size: 16px; font-weight: 600; margin: 0; }
+.inventory-count { font-size: 11px; color: var(--muted-foreground); border: 1px solid var(--border); padding: 3px 7px; border-radius: 3px; }
+.sort-control { display: flex; gap: 10px; align-items: center; color: var(--muted-foreground); font-size: 12px; }
+.sort-control select { background: var(--background); color: var(--foreground); border: none; padding: 7px 4px; cursor: pointer; font-size: 12px; max-width: 170px; }
+.car-list { display: grid; gap: 24px; }
+.car-row { display: grid; grid-template-columns: 1.04fr 1fr; background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+.car-photo { position: relative; min-width: 0; }
+.car-photo img { width: 100%; height: 100%; min-height: 345px; display: block; object-fit: cover; }
+.photo-label { position: absolute; top: 18px; left: 18px; font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 7px 10px; border-radius: 3px; background: var(--background); color: var(--foreground); }
+.car-info { padding: 29px 32px; }
+.car-year { color: var(--muted-foreground); font-size: 11px; }
+.car-heading { display: flex; justify-content: space-between; gap: 16px; align-items: start; margin-top: 6px; }
+.car-heading h3 { font-family: var(--font-display); font-size: 34px; font-weight: 600; margin: 0; line-height: 1.1; }
+.car-price { color: var(--primary); font-family: var(--font-display); font-size: 31px; font-weight: 600; line-height: 1.1; white-space: nowrap; }
+.car-trim { color: var(--muted-foreground); font-size: 12px; margin: 8px 0 22px; }
+.car-specs { display: grid; grid-template-columns: repeat(3, 1fr); row-gap: 22px; column-gap: 14px; margin: 0; padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.car-specs dt { display: flex; gap: 6px; align-items: center; font-size: 10px; color: var(--muted-foreground); margin-bottom: 7px; }
+.car-specs dt svg { width: 13px; height: 13px; }
+.car-specs dd { font-size: 12px; font-weight: 600; margin: 0; }
+.car-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 17px; gap: 12px; }
+.car-category { font-size: 10px; color: var(--muted-foreground); }
+.car-details { color: var(--primary); padding: 0; height: 28px; font-size: 12px; }
+.car-extra { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted-foreground); font-size: 12px; line-height: 1.8; }
+.car-extra p { margin: 0; }
+.sample-note { display: flex; align-items: center; gap: 7px; color: var(--muted-foreground); font-size: 11px; margin: 22px 0 48px; }
+.site-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--border); padding-block: 25px; }
+.site-footer p { color: var(--muted-foreground); font-size: 11px; margin: 0; }
+.footer-brand { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; font-size: 18px; color: var(--primary); }
+@media (max-width: 900px) {
+ .site-container { padding-inline: 28px; }
+ .intro h1 { font-size: 76px; }
+ .car-info { padding: 24px; }
+ .car-heading { flex-wrap: wrap; gap: 7px; }
+ .car-heading h3 { font-size: 30px; }
+ .car-price { font-size: 28px; }
+ .car-photo img { min-height: 380px; }
+}
+@media (max-width: 640px) {
+ .site-container { padding-inline: 20px; }
+ .site-header { height: 77px; }
+ .brand-name { font-size: 22px; }
+ .brand-mark { width: 30px; }
+ .header-nav { font-size: 12px; }
+ .intro { padding-block: 36px 32px; }
+ .intro h1 { font-size: 59px; max-width: 320px; margin-block: 16px; }
+ .intro-bottom { align-items: start; }
+ .intro p { font-size: 13px; max-width: 250px; line-height: 1.7; }
+ .intro-index { display: none; }
+ .inventory-toolbar { gap: 8px; padding-block: 19px; }
+ .inventory-heading h2 { font-size: 14px; }
+ .sort-control { gap: 4px; }
+ .sort-control > span { display: none; }
+ .sort-control select { max-width: 132px; font-size: 11px; }
+ .car-row { grid-template-columns: 1fr; }
+ .car-photo img { min-height: 0; aspect-ratio: 1.5; }
+ .car-info { padding: 23px 20px; }
+ .car-heading { flex-wrap: nowrap; gap: 9px; }
+ .car-heading h3 { font-size: 29px; }
+ .car-price { font-size: 27px; }
+ .car-specs { column-gap: 8px; }
+ .sample-note { line-height: 1.7; align-items: start; }
+ .sample-note svg { flex-shrink: 0; margin-top: 2px; }
+ .site-footer { align-items: start; }
+ .site-footer p { max-width: 145px; text-align: right; line-height: 1.6; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
