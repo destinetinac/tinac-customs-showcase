@@ -7,19 +7,22 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  nitro: {
+    preset: "node-server",
+  },
   vite: {
     server: {
       allowedHosts: [
-        "tinac-customs-showcase.onrender.com" ,
-        "tinac.space" ,
-        "www.tinac.space" ,
+        "tinac-customs-showcase.onrender.com",
+        "tinac.space",
+        "www.tinac.space",
       ],
     },
     preview: {
       allowedHosts: [
-         "tinac-customs-showcase.onrender.com" ,
-        "tinac.space" ,
-        "www.tinac.space" ,
+        "tinac-customs-showcase.onrender.com",
+        "tinac.space",
+        "www.tinac.space",
       ],
     },
   },
