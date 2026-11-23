@@ -1,14 +1,16 @@
-# Welcome to your Lovable project
+# Tinac Customs Showcase
+
+I want a website to showcase the cars that im selling. I want a black background with red text and accents with good contrast so that its easy to read. The title of my company is Tinac Customs. I want it to be a page where the layout to showcase the cars is an image on the left and the car name on the left with the price, MPG, mileage and any other possible info. Lets start with that and build as we go
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/bfee14e9-1943-5dd4-90d6-268bc25bc435).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +22,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
